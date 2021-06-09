@@ -1,1 +1,4 @@
-# Hospital_Management_Internship
+# Hospital Management Internship
+
+
+<ins>##How to run</ins>
