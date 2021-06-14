@@ -25,18 +25,18 @@ function Doctor(props) {
   const history = useHistory();
 
   useEffect(() => {
+    function isUserLoggedIn() {
+      axios
+        .get("http://localhost:8000/api/check-login", { withCredentials: true })
+        .then((res) => getDoctorDetails())
+        .catch((err) => {
+          console.log(err);
+          history.push("/");
+        });
+    }
     isUserLoggedIn();
+    //eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  function isUserLoggedIn() {
-    axios
-      .get("http://localhost:8000/api/check-login", { withCredentials: true })
-      .then((res) => getDoctorDetails())
-      .catch((err) => {
-        console.log(err);
-        history.push("/");
-      });
-  }
 
   function getDoctorDetails() {
     axios
