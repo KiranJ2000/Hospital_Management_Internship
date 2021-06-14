@@ -87,6 +87,7 @@ function Nurse() {
         setKey(item.id);
         setUserData(item);
       }
+      return null;
     });
 
     setEditOpen(true);
@@ -110,6 +111,7 @@ function Nurse() {
             item.gender = data.gender;
             item.qualification = data.qualification;
           }
+          return null;
         });
 
         setEditOpen(false);
@@ -140,6 +142,7 @@ function Nurse() {
       if (item.id === deleteKey) {
         setDeleteUsername(item.first_name + " " + item.last_name);
       }
+      return null;
     });
     setDeleteModal(true);
   }

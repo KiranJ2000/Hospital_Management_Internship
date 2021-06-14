@@ -19,9 +19,9 @@ class ListNurse(generics.ListAPIView):
     serializer_class = ListUserSerializer
 
 class SignUp(APIView):
-    serializer_class = AuthenticationSerializer
     def post(self, request, format=None):
-        serializer = self.serializer_class(data=request.data)
+        serializer = AuthenticationSerializer(data=request.data)
+        print(request.data, serializer.is_valid())
 
         if serializer.is_valid():
             first_name = serializer.data.get('first_name')

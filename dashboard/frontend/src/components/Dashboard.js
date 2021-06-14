@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useHistory, Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import axios from "axios";
 
@@ -16,18 +15,17 @@ function Dashboard() {
   const history = useHistory();
 
   useEffect(() => {
+    function isUserLoggedIn() {
+      axios
+        .get("http://localhost:8000/api/check-login", { withCredentials: true })
+        .then((res) => getLength())
+        .catch((err) => {
+          console.log(err);
+          history.push("/");
+        });
+    }
     isUserLoggedIn();
   }, []);
-
-  function isUserLoggedIn() {
-    axios
-      .get("http://localhost:8000/api/check-login", { withCredentials: true })
-      .then((res) => getLength())
-      .catch((err) => {
-        console.log(err);
-        history.push("/");
-      });
-  }
 
   function getLength() {
     axios

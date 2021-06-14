@@ -67,7 +67,6 @@ function SignIn(props) {
       )
       .then((res) => {
         console.log(res);
-        console.log("HOLLLA AMIGO");
         history.push("/dashboard");
       })
       .catch((err) => {

@@ -71,6 +71,7 @@ function Doctor(props) {
         setKey(item.id);
         setUserData(item);
       }
+      return null;
     });
 
     setEditOpen(true);
@@ -91,7 +92,6 @@ function Doctor(props) {
         withCredentials: true,
       })
       .then(({ data }) => {
-        console.log(data);
         setItems([...items, data]);
         setOpen(false);
       })
@@ -105,10 +105,8 @@ function Doctor(props) {
         withCredentials: true,
       })
       .then(({ data }) => {
-        console.log();
         items.map((item) => {
           if (item.id === editData.id) {
-            console.log("podo");
             item.first_name = data.first_name;
             item.last_name = data.last_name;
             item.email = data.email;
@@ -116,6 +114,7 @@ function Doctor(props) {
             item.gender = data.gender;
             item.qualification = data.qualification;
           }
+          return null;
         });
 
         setEditOpen(false);
@@ -142,6 +141,8 @@ function Doctor(props) {
       if (item.id === deleteKey) {
         setDeleteUsername(item.first_name + " " + item.last_name);
       }
+
+      return null;
     });
     setDeleteModal(true);
   }

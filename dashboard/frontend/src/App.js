@@ -1,16 +1,12 @@
 import "./App.css";
-import { Route, useHistory } from "react-router-dom";
+import { Route } from "react-router-dom";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import Dashboard from "./components/Dashboard";
 import Doctor from "./components/Doctor";
 import Nurse from "./components/Nurse";
 
-import axios from "axios";
-
 function App() {
-  const history = useHistory();
-
   return (
     <>
       <Route exact path="/">
